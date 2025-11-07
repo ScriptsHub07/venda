@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - '27017:27017'
+  server:
+    build: ./server
+    environment:
+      - PORT=4000
+      - MONGO_URI=mongodb://mongo:27017/ecommerce
+      - JWT_SECRET=change_this
+      - SMTP_HOST=smtp.example.com
+      - SMTP_PORT=587
+      - SMTP_USER=user@example.com
+      - SMTP_PASS=pass
+      - ADMIN_EMAIL=admin@example.com
+    ports:
+      - '4000:4000'
+    depends_on:
+      - mongo
+volumes:
+  mongo-data:
