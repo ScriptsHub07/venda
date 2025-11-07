@@ -1,0 +1,14 @@
+<html>
+  <body style="font-family:Arial,Helvetica,sans-serif;color:#222;">
+    <h2>Novo pedido: {{orderId}}</h2>
+    <p><strong>Cliente:</strong> {{name}} ({{email}})</p>
+    <p><strong>Endereço:</strong> {{address}}</p>
+    <h3>Itens</h3>
+    <ul>
+      {{#items}}
+      <li>{{title}} — {{quantity}} x R$ {{price}}</li>
+      {{/items}}
+    </ul>
+    <p><strong>Total:</strong> R$ {{total}}</p>
+  </body>
+</html>

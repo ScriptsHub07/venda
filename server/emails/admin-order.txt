@@ -1,0 +1,11 @@
+Novo pedido: {{orderId}}
+
+Cliente: {{name}} ({{email}})
+Endereço: {{address}}
+
+Itens:
+{{#items}}
+ - {{title}} — {{quantity}} x R$ {{price}}
+{{/items}}
+
+Total: R$ {{total}}
